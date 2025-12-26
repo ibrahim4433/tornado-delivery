@@ -1,0 +1,146 @@
+/* RESET & BASIC SETUP */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    /* Radial gradient background: Darker center, slightly lighter edges as requested,
+       but typically "darker center" implies a spotlight effect or reverse.
+       "Darker center, slightly lighter edges" - usually creates a vignette feel or spotlight.
+       Let's do a subtle radial gradient that feels premium.
+       Base #1a1a1a. Let's go from #2a2a2a (center) to #111111 (edge) for depth. */
+    background: radial-gradient(circle at center, #2a2a2a 0%, #111111 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* CONTAINER FOR CONTENT */
+.container {
+    width: 100%;
+    max-width: 400px; /* Limits width for a phone-like view on PC */
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* HEADER STYLING */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+/* LOGO STYLING */
+.profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    /* Glowing ring effect */
+    box-shadow: 0 0 20px rgba(243, 111, 33, 0.6);
+    border: 3px solid #f36f21;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+/* TEXT STYLING */
+h1 {
+    font-size: 24px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+p {
+    color: #cccccc;
+    font-size: 14px;
+}
+
+/* MAIN CONTENT (BUTTONS) */
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* BUTTON STYLING - GLASSMORPHISM */
+.link-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 16px; /* Ensuring >44px touch target height */
+
+    /* Glass Effect */
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+
+    /* Default border is transparent or very subtle to allow hover effect to shine */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ICON STYLING */
+.icon {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+/* HOVER EFFECTS - GENERAL */
+.link-btn:hover {
+    transform: scale(1.02); /* Scale transition */
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* PLATFORM SPECIFIC HOVER GLOWS */
+/* Whatsapp - Green */
+.link-btn.whatsapp:hover {
+    border-color: #25D366;
+    box-shadow: 0 0 15px rgba(37, 211, 102, 0.3);
+}
+
+/* Facebook - Blue */
+.link-btn.facebook:hover {
+    border-color: #1877F2;
+    box-shadow: 0 0 15px rgba(24, 119, 242, 0.3);
+}
+
+/* Telegram - Light Blue */
+.link-btn.telegram:hover {
+    border-color: #0088cc;
+    box-shadow: 0 0 15px rgba(0, 136, 204, 0.3);
+}
+
+/* Complaint - Red */
+.link-btn.complaint:hover {
+    border-color: #ff4444;
+    box-shadow: 0 0 15px rgba(255, 68, 68, 0.3);
+}
+
+/* FOOTER */
+footer {
+    margin-top: 30px;
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+}
