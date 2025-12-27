@@ -42,6 +42,8 @@ header {
     align-items: center;
     margin-bottom: 25px;
     width: 100%;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
 }
 
 /* LOGO STYLING */
@@ -54,6 +56,11 @@ header {
     border: 3px solid #f36f21;
     object-fit: cover;
     margin-bottom: 15px;
+    transition: transform 0.6s ease-in-out;
+}
+
+.profile-img:hover {
+    transform: rotate(360deg);
 }
 
 /* TEXT STYLING */
@@ -110,6 +117,8 @@ main {
     transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     position: relative;
     overflow: hidden;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
 }
 
 /* ICON STYLING */
@@ -122,15 +131,25 @@ main {
 
 /* HOVER EFFECTS - GENERAL */
 .link-btn:hover {
-    transform: scale(1.02); /* Scale transition */
+    transform: scale(1.02) !important; /* Scale transition */
     background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* TOUCH FEEDBACK (Active) */
 .link-btn:active {
-    transform: scale(0.98);
+    transform: scale(0.98) !important;
     background-color: rgba(255, 255, 255, 0.15);
 }
+
+/* Staggered Entrance Delays */
+main > *:nth-child(1) { animation-delay: 0.1s; } /* Call Now */
+main > *:nth-child(2) { animation-delay: 0.2s; } /* WhatsApp */
+main > *:nth-child(3) { animation-delay: 0.3s; } /* Telegram */
+main > *:nth-child(4) { animation-delay: 0.4s; } /* Save Contact */
+main > *:nth-child(5) { animation-delay: 0.5s; } /* FB */
+main > *:nth-child(6) { animation-delay: 0.6s; } /* Insta */
+main > *:nth-child(7) { animation-delay: 0.7s; } /* Channel */
+main > *:nth-child(8) { animation-delay: 0.8s; } /* Complaint */
 
 /* PLATFORM SPECIFIC STYLES (Default & Hover) */
 
@@ -277,6 +296,7 @@ body::before {
     font-size: 1.2rem;
     font-weight: 700;
     box-shadow: 0 4px 15px rgba(243, 111, 33, 0.4);
+    animation: fadeInUp 0.6s ease-out forwards 0.1s, heartbeat 2s infinite ease-in-out 1s;
 }
 .link-btn.call-now svg {
     fill: #ffffff;
@@ -292,4 +312,17 @@ button.link-btn {
     font-family: inherit;
     font-size: inherit;
     cursor: pointer;
+}
+
+/* 1. Slide Up Entrance */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 2. Heartbeat Pulse (For Call Button) */
+@keyframes heartbeat {
+    0% { transform: scale(1); box-shadow: 0 4px 15px rgba(243, 111, 33, 0.4); }
+    50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(243, 111, 33, 0.7); }
+    100% { transform: scale(1); box-shadow: 0 4px 15px rgba(243, 111, 33, 0.4); }
 }
